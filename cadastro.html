@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Necessidade</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-flex">
+            <div class="header-title">Cadastro de Necessidade</div>
+            <nav class="header-nav">
+                <a href="home.html">Início</a>
+                <a href="cadastro.html">Cadastrar Necessidade</a>
+                <a href="neessidades.html">Ver Necessidades</a>
+            </nav>
+        </div>
+    </header>
+    <h1 style="color: black; font-weight: bold;" class="header-desc">Insira suas demandas por voluntários ou doações.</h1>
+    <hr>
+    <main>
+        <form id="form-cadastro" onsubmit="return validarFormulario()">
+            <label for="nomeInstituicao">Nome da Instituição:</label>
+            <input type="text" id="nomeInstituicao" required>
+
+            <label for="tipoAjuda">Tipo de Ajuda:</label>
+            <select id="tipoAjuda" required>
+                <option value="">Selecione</option>
+                <option value="voluntariado">Voluntariado</option>
+                <option value="doacao">Doação</option>
+            </select>
+
+            <label for="tituloNecessidade">Título da Necessidade:</label>
+            <input type="text" id="tituloNecessidade" required>
+
+            <label for="descricaoNecessidade">Descrição Detalhada:</label>
+            <textarea id="descricaoNecessidade" required></textarea>
+
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" required>
+
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" required>
+
+            <label for="contato">Contato:</label>
+            <input type="text" id="contato" required>
+
+            <button type="submit">Cadastrar Necessidade</button>
+        </form>
+    </main>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

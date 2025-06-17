@@ -1,3 +1,15 @@
+/* Ajuste de espaçamento entre cards e seções para melhor hierarquia visual */
+.card-necessidade:not(:last-child) {
+  margin-bottom: 28px;
+}
+
+main {
+  margin-bottom: 32px;
+}
+
+section.filtros {
+  margin-top: 24px;
+}
 footer {
   background: #223A5E;
   color: #fff;

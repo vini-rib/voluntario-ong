@@ -1,0 +1,25 @@
+/* Cards de necessidades */
+.card-necessidade {
+  background: #f8f8f8;
+  border: 1px solid #3ED6B7;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(34,58,94,0.06);
+  padding: 18px 16px;
+  margin-bottom: 18px;
+}
+.card-necessidade h3 {
+  margin-top: 0;
+  color: #223A5E;
+}
+.filtros {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.filtros input, .filtros select {
+  padding: 8px;
+  border: 1px solid #3ED6B7;
+  border-radius: 4px;
+  font-size: 1rem;
+}

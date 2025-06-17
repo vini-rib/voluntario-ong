@@ -1,3 +1,46 @@
+// Função para exibir as necessidades cadastradas na página necessidades.html
+function exibirNecessidades() {
+    const lista = document.getElementById('lista-necessidades');
+    if (!lista) return;
+    const necessidades = JSON.parse(localStorage.getItem('necessidades')) || [];
+    const pesquisa = document.getElementById('pesquisa')?.value.toLowerCase() || '';
+    const filtroTipo = document.getElementById('filtro-tipo')?.value || '';
+    let filtradas = necessidades;
+    if (pesquisa) {
+        filtradas = filtradas.filter(n =>
+            n.tituloNecessidade.toLowerCase().includes(pesquisa) ||
+            n.descricaoNecessidade.toLowerCase().includes(pesquisa)
+        );
+    }
+    if (filtroTipo) {
+        filtradas = filtradas.filter(n => n.tipoAjuda === filtroTipo);
+    }
+    lista.innerHTML = '';
+    if (filtradas.length === 0) {
+        lista.innerHTML = '<p>Nenhuma necessidade encontrada.</p>';
+        return;
+    }
+    filtradas.forEach(n => {
+        const card = document.createElement('div');
+        card.className = 'card-necessidade';
+        card.innerHTML = `
+            <h3>${n.tituloNecessidade}</h3>
+            <p><strong>Instituição:</strong> ${n.nomeInstituicao}</p>
+            <p><strong>Tipo de Ajuda:</strong> ${n.tipoAjuda}</p>
+            <p><strong>Descrição:</strong> ${n.descricaoNecessidade}</p>
+            <p><strong>Endereço:</strong> ${n.rua}, ${n.bairro}, ${n.cidade} - ${n.estado}, CEP: ${n.cep}</p>
+            <p><strong>Contato:</strong> ${n.contato}</p>
+        `;
+        lista.appendChild(card);
+    });
+}
+
+// Adiciona listeners para filtros e pesquisa na página de necessidades
+if (document.getElementById('lista-necessidades')) {
+    exibirNecessidades();
+    document.getElementById('pesquisa').addEventListener('input', exibirNecessidades);
+    document.getElementById('filtro-tipo').addEventListener('change', exibirNecessidades);
+}
 // Array para armazenar as necessidades cadastradas
 const necessidades = JSON.parse(localStorage.getItem('necessidades')) || [];
 

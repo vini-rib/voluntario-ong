@@ -1,3 +1,27 @@
+/* Estilo específico para a tela de listagem de necessidades */
+body.necessidades-lista main {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(34,58,94,0.10);
+  padding: 36px 28px;
+  max-width: 800px;
+  margin: 32px auto 0 auto;
+}
+body.necessidades-lista #lista-necessidades {
+  margin-top: 18px;
+}
+body.necessidades-lista .card-necessidade {
+  border: 1.5px solid #3ED6B7;
+  background: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(34,58,94,0.06);
+  padding: 22px 18px;
+  margin-bottom: 24px;
+}
+body.necessidades-lista .card-necessidade h3 {
+  color: #223A5E;
+  margin-top: 0;
+}
 /* Estilo específico para a tela de cadastro de necessidade */
 body.cadastro-necessidade main {
   background: #fff;

@@ -1,3 +1,43 @@
+# Plataforma de Conexão Voluntária Local
+
+## Descrição
+Plataforma web para conectar ONGs e instituições sociais a voluntários, facilitando o cadastro e a visualização de demandas reais da comunidade.
+
+## Funcionalidades
+- Cadastro de necessidades por instituições (formulário validado e integrado ao ViaCEP)
+- Visualização dinâmica das necessidades em cards
+- Pesquisa e filtro por tipo de ajuda
+- Layout responsivo, acessível e consistente
+- Estrutura de pastas organizada (HTML, CSS, JS)
+
+## Estrutura de Pastas
+```
+voluntario-ong/
+  cadastro.html
+  home.html
+  necessidades.html
+  README.md
+  assets/
+    css/
+      style.css
+    js/
+      main.js
+```
+
+## Como rodar o projeto localmente
+1. Clone o repositório
+2. Abra o arquivo `home.html` no navegador
+3. Navegue entre as páginas pelo menu
+
+## Publicação
+O projeto pode ser publicado facilmente no GitHub Pages:
+1. Faça push para o GitHub
+2. No repositório, acesse Settings > Pages
+3. Selecione a branch principal e a pasta `/voluntario-ong` como fonte
+4. O site estará disponível no endereço gerado pelo GitHub Pages
+
+## Licença
+MIT
 # Plataforma de Conexão Voluntária
 
 Projeto para conectar ONGs e voluntários, facilitando o cadastro e a visualização de demandas sociais.

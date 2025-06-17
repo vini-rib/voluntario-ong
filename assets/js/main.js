@@ -1,26 +1,14 @@
-// Função para exibir as necessidades cadastradas na página necessidades.html
+// Função para exibir todas as necessidades cadastradas na página necessidades.html (sem pesquisa/filtro)
 function exibirNecessidades() {
     const lista = document.getElementById('lista-necessidades');
     if (!lista) return;
     const necessidades = JSON.parse(localStorage.getItem('necessidades')) || [];
-    const pesquisa = document.getElementById('pesquisa')?.value.toLowerCase() || '';
-    const filtroTipo = document.getElementById('filtro-tipo')?.value || '';
-    let filtradas = necessidades;
-    if (pesquisa) {
-        filtradas = filtradas.filter(n =>
-            n.tituloNecessidade.toLowerCase().includes(pesquisa) ||
-            n.descricaoNecessidade.toLowerCase().includes(pesquisa)
-        );
-    }
-    if (filtroTipo) {
-        filtradas = filtradas.filter(n => n.tipoAjuda === filtroTipo);
-    }
     lista.innerHTML = '';
-    if (filtradas.length === 0) {
+    if (necessidades.length === 0) {
         lista.innerHTML = '<p>Nenhuma necessidade encontrada.</p>';
         return;
     }
-    filtradas.forEach(n => {
+    necessidades.forEach(n => {
         const card = document.createElement('div');
         card.className = 'card-necessidade';
         card.innerHTML = `
@@ -35,11 +23,9 @@ function exibirNecessidades() {
     });
 }
 
-// Adiciona listeners para filtros e pesquisa na página de necessidades
+// Chama a função ao carregar a página de necessidades
 if (document.getElementById('lista-necessidades')) {
     exibirNecessidades();
-    document.getElementById('pesquisa').addEventListener('input', exibirNecessidades);
-    document.getElementById('filtro-tipo').addEventListener('change', exibirNecessidades);
 }
 // Array para armazenar as necessidades cadastradas
 const necessidades = JSON.parse(localStorage.getItem('necessidades')) || [];

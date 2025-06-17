@@ -191,3 +191,54 @@ footer {
 .btn-submit:hover {
     background: #2cb798;
 }
+
+/* Lista de Necessidades */
+.lista-necessidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+.card-necessidade {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.card-necessidade:hover {
+    transform: translateY(-5px);
+}
+
+.card-necessidade h3 {
+    color: #223A5E;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.card-necessidade p {
+    margin-bottom: 0.75rem;
+    color: #666;
+}
+
+.card-necessidade strong {
+    color: #333;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .lista-necessidades {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-cadastro {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+}

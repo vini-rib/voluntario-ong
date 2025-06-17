@@ -53,20 +53,25 @@
 
             <!-- Campo: CEP -->
             <label for="cep">CEP:</label>
-            <input type="text" id="cep" required maxlength="9" placeholder="00000-000">
-
-            <!-- Campos de Endereço preenchidos automaticamente -->
-            <label for="rua">Rua:</label>
-            <input type="text" id="rua" required>
-
-            <label for="bairro">Bairro:</label>
-            <input type="text" id="bairro" required>
-
-            <label for="cidade">Cidade:</label>
-            <input type="text" id="cidade" required>
-
-            <label for="estado">Estado:</label>
-            <input type="text" id="estado" required>
+            <input type="text" id="cep" required maxlength="9" placeholder="00000-000">            <!-- Campos de Endereço preenchidos automaticamente -->
+            <div class="endereco-grid">
+                <div>
+                    <label for="rua">Rua:</label>
+                    <input type="text" id="rua" readonly>
+                </div>
+                <div>
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" id="bairro" readonly>
+                </div>
+                <div>
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" readonly>
+                </div>
+                <div>
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" readonly>
+                </div>
+            </div>
 
             <!-- Campo: Contato -->
             <label for="contato">Contato (E-mail ou Telefone):</label>

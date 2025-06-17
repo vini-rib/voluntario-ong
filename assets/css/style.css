@@ -18,6 +18,77 @@ body {
     padding: 0 20px;
 }
 
+/* Estilos do Header e Navegação */
+header {
+    background: #223A5E;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.header-flex {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.header-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.header-nav a:hover {
+    background: #3ED6B7;
+    color: #223A5E;
+}
+
+.header-desc {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+    color: #223A5E !important;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Responsividade do Header */
+@media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .header-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .header-desc {
+        font-size: 1.5rem;
+        margin: 1.5rem auto;
+    }
+}
+
 /* Cabeçalho e Navegação */
 header {
     background-color: #223A5E;

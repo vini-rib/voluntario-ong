@@ -57,26 +57,52 @@ function salvarNecessidade() {
     document.getElementById('form-cadastro').reset();
 }
 
-// Função para buscar CEP
+// Função para buscar CEP utilizando a API ViaCEP
 async function buscarCEP(cep) {
+    // Remove caracteres não numéricos
     const cepLimpo = cep.replace(/\D/g, '');
-    if (cepLimpo.length !== 8) return;
+
+    // Valida o formato do CEP (8 dígitos)
+    if (cepLimpo.length !== 8) {
+        alert('Por favor, insira um CEP válido com 8 dígitos.');
+        return;
+    }
 
     try {
+        // Faz a requisição para a API do ViaCEP
         const response = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+        
+        // Verifica se a requisição foi bem sucedida
+        if (!response.ok) {
+            throw new Error('Erro na requisição do CEP');
+        }
+
         const data = await response.json();
 
+        // Verifica se o CEP existe na base
         if (data.erro) {
-            alert('CEP não encontrado.');
+            alert('CEP não encontrado na base de dados.');
             return;
         }
 
-        document.getElementById('rua').value = data.logradouro;
-        document.getElementById('bairro').value = data.bairro;
-        document.getElementById('cidade').value = data.localidade;
-        document.getElementById('estado').value = data.uf;
+        // Preenche os campos com os dados retornados
+        const campos = {
+            'rua': data.logradouro,
+            'bairro': data.bairro,
+            'cidade': data.localidade,
+            'estado': data.uf
+        };
+
+        // Atualiza os campos do formulário
+        Object.entries(campos).forEach(([campo, valor]) => {
+            const elemento = document.getElementById(campo);
+            if (elemento) {
+                elemento.value = valor || '';
+            }
+        });
     } catch (error) {
-        alert('Erro ao buscar CEP. Tente novamente mais tarde.');
+        console.error('Erro ao consultar CEP:', error);
+        alert('Erro ao buscar CEP. Por favor, tente novamente mais tarde.');
     }
 }
 

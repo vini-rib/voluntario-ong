@@ -6,7 +6,7 @@
     <title>Necessidades Cadastradas</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="necessidades-lista">
+<body>
     <header>
         <div class="header-flex">
             <div class="header-title">Necessidades Cadastradas</div>
@@ -16,9 +16,20 @@
                 <a href="necessidades.html">Ver Necessidades</a>
             </nav>
         </div>
-    </header>
-    <main>
-        <!-- Filtros removidos conforme solicitado -->
+    </header>    <main>
+        <section class="filtros">
+            <input type="text" id="pesquisa" placeholder="Pesquisar por título ou descrição...">
+            <select id="filtroTipo">
+                <option value="">Todos os tipos</option>
+                <option value="educacao">Educação</option>
+                <option value="saude">Saúde</option>
+                <option value="meio-ambiente">Meio Ambiente</option>
+                <option value="doacao-alimentos">Doação de Alimentos</option>
+                <option value="doacao-roupas">Doação de Roupas</option>
+                <option value="voluntariado">Voluntariado</option>
+                <option value="outros">Outros</option>
+            </select>
+        </section>
         <section id="lista-necessidades">
             <!-- As necessidades cadastradas serão exibidas aqui -->
         </section>

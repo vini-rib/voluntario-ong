@@ -1,3 +1,48 @@
+/* Botão de destaque para chamada à ação */
+.btn-destaque {
+  display: inline-block;
+  background: #3ED6B7;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 12px;
+  transition: background 0.2s;
+}
+.btn-destaque:hover {
+  background: #223A5E;
+  color: #fff;
+}
+
+/* Estilo para cards de necessidade */
+.card-necessidade {
+  background: #f8f8f8;
+  border: 1px solid #3ED6B7;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(34,58,94,0.06);
+  padding: 20px 18px;
+  margin-bottom: 18px;
+}
+.card-necessidade h3 {
+  margin-top: 0;
+  color: #223A5E;
+}
+
+/* Filtros de pesquisa */
+.filtros {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.filtros input, .filtros select {
+  padding: 8px 10px;
+  border: 1px solid #3ED6B7;
+  border-radius: 4px;
+  font-size: 1rem;
+}
 /* Cards de necessidades */
 .card-necessidade {
   background: #f8f8f8;

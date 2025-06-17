@@ -81,11 +81,11 @@ async function buscarCEP(cep) {
 }
 
 // Função para exibir necessidades
-function exibirNecessidades(filtradas = null) {
+function exibirNecessidades() {
     const necessidadesContainer = document.getElementById('lista-necessidades');
     if (!necessidadesContainer) return;
 
-    const necessidadesParaExibir = filtradas || JSON.parse(localStorage.getItem('necessidades')) || [];
+    const necessidadesParaExibir = JSON.parse(localStorage.getItem('necessidades')) || [];
     
     necessidadesContainer.innerHTML = necessidadesParaExibir.length === 0 
         ? '<p>Nenhuma necessidade cadastrada.</p>'
@@ -109,10 +109,10 @@ window.addEventListener('load', () => {
     const necessidadesArmazenadas = localStorage.getItem('necessidades');
     if (necessidadesArmazenadas) {
         necessidades = JSON.parse(necessidadesArmazenadas);
-    }
-
-    // Exibir necessidades se estiver na página de necessidades
-    exibirNecessidades();    // Adicionar listener para o CEP se estiver na página de cadastro
+    }    // Exibir necessidades se estiver na página de necessidades
+    exibirNecessidades();
+    
+    // Adicionar listener para o CEP se estiver na página de cadastro
     const cepInput = document.getElementById('cep');
     if (cepInput) {
         cepInput.addEventListener('blur', (e) => buscarCEP(e.target.value));

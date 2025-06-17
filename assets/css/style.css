@@ -1,3 +1,31 @@
+/* Estilo específico para a tela de cadastro de necessidade */
+body.cadastro-necessidade main {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(34,58,94,0.10);
+  padding: 36px 28px;
+  max-width: 600px;
+  margin: 32px auto 0 auto;
+}
+body.cadastro-necessidade form label {
+  color: #223A5E;
+  font-weight: 600;
+}
+body.cadastro-necessidade form input,
+body.cadastro-necessidade form select,
+body.cadastro-necessidade form textarea {
+  margin-bottom: 14px;
+  background: #f8f8f8;
+  border: 1.5px solid #3ED6B7;
+  border-radius: 5px;
+  font-size: 1.05rem;
+}
+body.cadastro-necessidade button[type="submit"] {
+  margin-top: 22px;
+  background: linear-gradient(90deg, #3ED6B7 60%, #223A5E 100%);
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+}
 /* Ajuste de espaçamento entre cards e seções para melhor hierarquia visual */
 .card-necessidade:not(:last-child) {
   margin-bottom: 28px;

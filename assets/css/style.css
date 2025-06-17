@@ -1,3 +1,12 @@
+footer {
+  background: #223A5E;
+  color: #fff;
+  text-align: center;
+  padding: 18px 0 10px 0;
+  margin-top: 40px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
 /* Botão de destaque para chamada à ação */
 .btn-destaque {
   display: inline-block;

@@ -13,7 +13,7 @@
             <nav class="header-nav">
                 <a href="home.html">Início</a>
                 <a href="cadastro.html">Cadastrar Necessidade</a>
-                <a href="neessidades.html">Ver Necessidades</a>
+                <a href="necessidades.html">Ver Necessidades</a>
             </nav>
         </div>
     </header>
@@ -21,30 +21,51 @@
     <hr>
     <main>
         <form id="form-cadastro" onsubmit="return validarFormulario()">
+            <!-- Campo: Nome da Instituição -->
             <label for="nomeInstituicao">Nome da Instituição:</label>
             <input type="text" id="nomeInstituicao" required>
 
+            <!-- Campo: Tipo de Ajuda -->
             <label for="tipoAjuda">Tipo de Ajuda:</label>
             <select id="tipoAjuda" required>
                 <option value="">Selecione</option>
+                <option value="educacao">Educação</option>
+                <option value="saude">Saúde</option>
+                <option value="meio-ambiente">Meio Ambiente</option>
+                <option value="doacao-alimentos">Doação de Alimentos</option>
+                <option value="doacao-roupas">Doação de Roupas</option>
                 <option value="voluntariado">Voluntariado</option>
-                <option value="doacao">Doação</option>
+                <option value="outros">Outros</option>
             </select>
 
+            <!-- Campo: Título da Necessidade -->
             <label for="tituloNecessidade">Título da Necessidade:</label>
             <input type="text" id="tituloNecessidade" required>
 
+            <!-- Campo: Descrição Detalhada -->
             <label for="descricaoNecessidade">Descrição Detalhada:</label>
             <textarea id="descricaoNecessidade" required></textarea>
 
+            <!-- Campo: CEP -->
             <label for="cep">CEP:</label>
-            <input type="text" id="cep" required>
+            <input type="text" id="cep" required maxlength="9" placeholder="00000-000">
 
-            <label for="endereco">Endereço:</label>
-            <input type="text" id="endereco" required>
+            <!-- Campos de Endereço preenchidos automaticamente -->
+            <label for="rua">Rua:</label>
+            <input type="text" id="rua" required>
 
-            <label for="contato">Contato:</label>
-            <input type="text" id="contato" required>
+            <label for="bairro">Bairro:</label>
+            <input type="text" id="bairro" required>
+
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" required>
+
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" required>
+
+            <!-- Campo: Contato -->
+            <label for="contato">Contato (E-mail ou Telefone):</label>
+            <input type="text" id="contato" required placeholder="email@exemplo.com ou (99) 99999-9999">
 
             <button type="submit">Cadastrar Necessidade</button>
         </form>

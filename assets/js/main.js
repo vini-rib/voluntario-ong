@@ -1,116 +1,120 @@
-// Função para exibir todas as necessidades cadastradas na página necessidades.html (sem pesquisa/filtro)
-function exibirNecessidades() {
-    const lista = document.getElementById('lista-necessidades');
-    if (!lista) return;
-    const necessidades = JSON.parse(localStorage.getItem('necessidades')) || [];
-    lista.innerHTML = '';
-    if (necessidades.length === 0) {
-        lista.innerHTML = '<p>Nenhuma necessidade encontrada.</p>';
-        return;
-    }
-    necessidades.forEach(n => {
-        const card = document.createElement('div');
-        card.className = 'card-necessidade';
-        card.innerHTML = `
-            <h3>${n.tituloNecessidade}</h3>
-            <p><strong>Instituição:</strong> ${n.nomeInstituicao}</p>
-            <p><strong>Tipo de Ajuda:</strong> ${n.tipoAjuda}</p>
-            <p><strong>Descrição:</strong> ${n.descricaoNecessidade}</p>
-            <p><strong>Endereço:</strong> ${n.rua}, ${n.bairro}, ${n.cidade} - ${n.estado}, CEP: ${n.cep}</p>
-            <p><strong>Contato:</strong> ${n.contato}</p>
-        `;
-        lista.appendChild(card);
-    });
-}
-
-// Chama a função ao carregar a página de necessidades
-if (document.getElementById('lista-necessidades')) {
-    exibirNecessidades();
-}
 // Array para armazenar as necessidades cadastradas
-const necessidades = JSON.parse(localStorage.getItem('necessidades')) || [];
+let necessidades = [];
 
-/**
- * Função para salvar a necessidade no array e no localStorage
- */
-document.getElementById('form-cadastro').addEventListener('submit', function(event) {
-    if (!validarFormulario()) {
-        event.preventDefault();
-        return;
-    }
-    // Monta o objeto necessidade
-    const necessidade = {
-        nomeInstituicao: document.getElementById('nomeInstituicao').value.trim(),
-        tipoAjuda: document.getElementById('tipoAjuda').value,
-        tituloNecessidade: document.getElementById('tituloNecessidade').value.trim(),
-        descricaoNecessidade: document.getElementById('descricaoNecessidade').value.trim(),
-        cep: document.getElementById('cep').value.trim(),
-        rua: document.getElementById('rua').value.trim(),
-        bairro: document.getElementById('bairro').value.trim(),
-        cidade: document.getElementById('cidade').value.trim(),
-        estado: document.getElementById('estado').value.trim(),
-        contato: document.getElementById('contato').value.trim(),
-        dataCadastro: new Date().toISOString()
-    };
-    necessidades.push(necessidade);
-    localStorage.setItem('necessidades', JSON.stringify(necessidades));
-    alert('Necessidade cadastrada com sucesso!');
-    this.reset();
-    event.preventDefault(); // Evita recarregar a página
-});
-// Validação do formulário de cadastro de necessidade
-// e integração com ViaCEP para preenchimento automático de endereço
-
-/**
- * Função para validar o formulário antes do envio
- * Verifica campos obrigatórios, formato de e-mail e telefone
- */
+// Função para validar o formulário
 function validarFormulario() {
-    const nome = document.getElementById('nomeInstituicao').value.trim();
+    const nomeInstituicao = document.getElementById('nomeInstituicao').value;
     const tipoAjuda = document.getElementById('tipoAjuda').value;
-    const titulo = document.getElementById('tituloNecessidade').value.trim();
-    const descricao = document.getElementById('descricaoNecessidade').value.trim();
-    const cep = document.getElementById('cep').value.trim();
-    const rua = document.getElementById('rua').value.trim();
-    const bairro = document.getElementById('bairro').value.trim();
-    const cidade = document.getElementById('cidade').value.trim();
-    const estado = document.getElementById('estado').value.trim();
-    const contato = document.getElementById('contato').value.trim();
+    const titulo = document.getElementById('tituloNecessidade').value;
+    const descricao = document.getElementById('descricaoNecessidade').value;
+    const cep = document.getElementById('cep').value;
+    const contato = document.getElementById('contato').value;
 
-    // Validação simples de e-mail e telefone
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const telefoneRegex = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
-    if (!nome || !tipoAjuda || !titulo || !descricao || !cep || !rua || !bairro || !cidade || !estado || !contato) {
+    if (!nomeInstituicao || !tipoAjuda || !titulo || !descricao || !cep || !contato) {
         alert('Por favor, preencha todos os campos obrigatórios.');
         return false;
     }
-    if (!(emailRegex.test(contato) || telefoneRegex.test(contato))) {
-        alert('Informe um e-mail ou telefone válido no campo de contato.');
+
+    // Validar formato do CEP
+    const cepLimpo = cep.replace(/\D/g, '');
+    if (cepLimpo.length !== 8) {
+        alert('Por favor, insira um CEP válido.');
         return false;
     }
-    return true;
+
+    // Validar formato do contato (email ou telefone)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const telefoneRegex = /^\(\d{2}\)\s\d{4,5}-\d{4}$/;
+    if (!emailRegex.test(contato) && !telefoneRegex.test(contato)) {
+        alert('Por favor, insira um e-mail válido ou telefone no formato (99) 99999-9999');
+        return false;
+    }
+
+    // Se passou por todas as validações, salvar a necessidade
+    salvarNecessidade();
+    return false; // Impede o envio do formulário
 }
 
-/**
- * Função para buscar endereço pelo CEP usando a API ViaCEP
- * Preenche automaticamente os campos de rua, bairro, cidade e estado
- */
-document.getElementById('cep').addEventListener('blur', function() {
-    const cep = this.value.replace(/\D/g, '');
-    if (cep.length !== 8) return;
-    fetch(`https://viacep.com.br/ws/${cep}/json/`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.erro) {
-                alert('CEP não encontrado.');
-                return;
-            }
-            document.getElementById('rua').value = data.logradouro || '';
-            document.getElementById('bairro').value = data.bairro || '';
-            document.getElementById('cidade').value = data.localidade || '';
-            document.getElementById('estado').value = data.uf || '';
-        })
-        .catch(() => alert('Erro ao buscar o CEP.'));
-});
+// Função para salvar a necessidade
+function salvarNecessidade() {
+    const necessidade = {
+        nomeInstituicao: document.getElementById('nomeInstituicao').value,
+        tipoAjuda: document.getElementById('tipoAjuda').value,
+        titulo: document.getElementById('tituloNecessidade').value,
+        descricao: document.getElementById('descricaoNecessidade').value,
+        cep: document.getElementById('cep').value,
+        rua: document.getElementById('rua').value,
+        bairro: document.getElementById('bairro').value,
+        cidade: document.getElementById('cidade').value,
+        estado: document.getElementById('estado').value,
+        contato: document.getElementById('contato').value,
+        dataCadastro: new Date().toISOString()
+    };
 
-// Comentários explicativos incluídos para facilitar manutenção e entendimento do código.
+    necessidades.push(necessidade);
+    localStorage.setItem('necessidades', JSON.stringify(necessidades));
+    alert('Necessidade cadastrada com sucesso!');
+    document.getElementById('form-cadastro').reset();
+}
+
+// Função para buscar CEP
+async function buscarCEP(cep) {
+    const cepLimpo = cep.replace(/\D/g, '');
+    if (cepLimpo.length !== 8) return;
+
+    try {
+        const response = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+        const data = await response.json();
+
+        if (data.erro) {
+            alert('CEP não encontrado.');
+            return;
+        }
+
+        document.getElementById('rua').value = data.logradouro;
+        document.getElementById('bairro').value = data.bairro;
+        document.getElementById('cidade').value = data.localidade;
+        document.getElementById('estado').value = data.uf;
+    } catch (error) {
+        alert('Erro ao buscar CEP. Tente novamente mais tarde.');
+    }
+}
+
+// Função para exibir necessidades
+function exibirNecessidades(filtradas = null) {
+    const necessidadesContainer = document.getElementById('lista-necessidades');
+    if (!necessidadesContainer) return;
+
+    const necessidadesParaExibir = filtradas || JSON.parse(localStorage.getItem('necessidades')) || [];
+    
+    necessidadesContainer.innerHTML = necessidadesParaExibir.length === 0 
+        ? '<p>Nenhuma necessidade cadastrada.</p>'
+        : necessidadesParaExibir.map(n => `
+            <div class="card-necessidade">
+                <h3>${n.titulo}</h3>
+                <p><strong>Instituição:</strong> ${n.nomeInstituicao}</p>
+                <p><strong>Tipo de Ajuda:</strong> ${n.tipoAjuda}</p>
+                <p><strong>Descrição:</strong> ${n.descricao}</p>
+                <p><strong>Localização:</strong> ${n.cidade} - ${n.estado}</p>
+                <p><strong>Contato:</strong> ${n.contato}</p>
+            </div>
+        `).join('');
+}
+
+
+
+// Event Listeners
+window.addEventListener('load', () => {
+    // Carregar necessidades do localStorage
+    const necessidadesArmazenadas = localStorage.getItem('necessidades');
+    if (necessidadesArmazenadas) {
+        necessidades = JSON.parse(necessidadesArmazenadas);
+    }
+
+    // Exibir necessidades se estiver na página de necessidades
+    exibirNecessidades();    // Adicionar listener para o CEP se estiver na página de cadastro
+    const cepInput = document.getElementById('cep');
+    if (cepInput) {
+        cepInput.addEventListener('blur', (e) => buscarCEP(e.target.value));
+    }
+});

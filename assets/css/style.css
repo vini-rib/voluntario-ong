@@ -70,6 +70,24 @@ footer {
   font-size: 1rem;
   letter-spacing: 0.5px;
 }
+
+/* Footer e Ajustes Finais */
+footer {
+    background: #223A5E;
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+footer .container {
+    text-align: center;
+}
+
+main {
+    min-height: calc(100vh - 180px);
+    padding: 2rem 0;
+}
+
 /* Botão de destaque para chamada à ação */
 .btn-destaque {
   display: inline-block;
@@ -241,4 +259,40 @@ footer {
         padding: 1.5rem;
         margin: 1rem;
     }
+}
+
+/* Utilidades */
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    color: #223A5E;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-necessidade {
+    animation: fadeIn 0.5s ease-out;
 }

@@ -1,3 +1,34 @@
+// Array para armazenar as necessidades cadastradas
+const necessidades = JSON.parse(localStorage.getItem('necessidades')) || [];
+
+/**
+ * Função para salvar a necessidade no array e no localStorage
+ */
+document.getElementById('form-cadastro').addEventListener('submit', function(event) {
+    if (!validarFormulario()) {
+        event.preventDefault();
+        return;
+    }
+    // Monta o objeto necessidade
+    const necessidade = {
+        nomeInstituicao: document.getElementById('nomeInstituicao').value.trim(),
+        tipoAjuda: document.getElementById('tipoAjuda').value,
+        tituloNecessidade: document.getElementById('tituloNecessidade').value.trim(),
+        descricaoNecessidade: document.getElementById('descricaoNecessidade').value.trim(),
+        cep: document.getElementById('cep').value.trim(),
+        rua: document.getElementById('rua').value.trim(),
+        bairro: document.getElementById('bairro').value.trim(),
+        cidade: document.getElementById('cidade').value.trim(),
+        estado: document.getElementById('estado').value.trim(),
+        contato: document.getElementById('contato').value.trim(),
+        dataCadastro: new Date().toISOString()
+    };
+    necessidades.push(necessidade);
+    localStorage.setItem('necessidades', JSON.stringify(necessidades));
+    alert('Necessidade cadastrada com sucesso!');
+    this.reset();
+    event.preventDefault(); // Evita recarregar a página
+});
 // Validação do formulário de cadastro de necessidade
 // e integração com ViaCEP para preenchimento automático de endereço
 

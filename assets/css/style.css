@@ -1,4 +1,3 @@
-/* Reset e estilos base */
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +17,6 @@ body {
     padding: 0 20px;
 }
 
-/* Estilos do Header e Navegação */
 header {
     background: #223A5E;
     padding: 1rem 0;
@@ -69,7 +67,6 @@ header {
     font-weight: bold;
 }
 
-/* Responsividade do Header */
 @media (max-width: 768px) {
     .header-flex {
         flex-direction: column;
@@ -89,7 +86,6 @@ header {
     }
 }
 
-/* Cabeçalho e Navegação */
 header {
     background-color: #223A5E;
     color: white;
@@ -120,7 +116,6 @@ nav a:hover {
     color: #3ED6B7;
 }
 
-/* Ajuste de espaçamento entre cards e seções para melhor hierarquia visual */
 .card-necessidade:not(:last-child) {
   margin-bottom: 28px;
 }
@@ -142,7 +137,6 @@ footer {
   letter-spacing: 0.5px;
 }
 
-/* Footer e Ajustes Finais */
 footer {
     background: #223A5E;
     color: white;
@@ -159,7 +153,6 @@ main {
     padding: 2rem 0;
 }
 
-/* Botão de destaque para chamada à ação */
 .btn-destaque {
   display: inline-block;
   background: #3ED6B7;
@@ -177,7 +170,6 @@ main {
   color: #fff;
 }
 
-/* Estilo para cards de necessidade */
 .card-necessidade {
   background: #f8f8f8;
   border: 1px solid #3ED6B7;
@@ -192,7 +184,6 @@ main {
 }
 
 
-/* Cards de necessidades */
 .card-necessidade {
   background: #f8f8f8;
   border: 1px solid #3ED6B7;
@@ -207,7 +198,6 @@ main {
 }
 
 
-/* Formulário de Cadastro */
 .form-cadastro {
     background: white;
     padding: 2rem;
@@ -258,7 +248,6 @@ main {
     background: #2cb798;
 }
 
-/* Lista de Necessidades */
 .lista-necessidades {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -293,7 +282,6 @@ main {
     color: #333;
 }
 
-/* Estilos responsivos */
 @media (max-width: 768px) {
     .container {
         padding: 0 15px;
@@ -309,7 +297,6 @@ main {
     }
 }
 
-/* Estilos do Formulário */
 #form-cadastro {
     max-width: 800px;
     margin: 2rem auto;
@@ -369,14 +356,12 @@ main {
     background: #2cb798;
 }
 
-/* Grid layout para campos de endereço */
 .endereco-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
 
-/* Mensagens de erro */
 .campo-erro {
     border-color: #ff4444 !important;
 }
@@ -388,7 +373,6 @@ main {
     margin-bottom: 1rem;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     #form-cadastro {
         margin: 1rem;
@@ -400,7 +384,6 @@ main {
     }
 }
 
-/* Spinner de carregamento para busca de CEP */
 .loading {
     position: relative;
     opacity: 0.7;
@@ -426,7 +409,6 @@ main {
     }
 }
 
-/* Animações */
 @keyframes fadeIn {
     from {
         opacity: 0;

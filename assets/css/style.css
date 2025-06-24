@@ -1,290 +1,294 @@
-/* Variáveis CSS */
 :root {
-    --primary: #223A5E;
-    --accent: #3ED6B7;
-    --accent-hover: #2cb798;
-    --text: #333;
-    --text-light: #666;
-    --bg: #f5f5f5;
-    --white: #fff;
-    --error: #ff4444;
-    --border: #ddd;
-    --shadow: 0 2px 8px rgba(0,0,0,0.1);
-    --radius: 8px;
-    --transition: 0.3s ease;
-    --container: 1200px;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
+  --primary: #223a5e;
+  --accent: #3ed6b7;
+  --accent-hover: #2cb798;
+  --text: #333;
+  --text-light: #666;
+  --bg: #f5f5f5;
+  --white: #fff;
+  --error: #ff4444;
+  --border: #ddd;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+  --transition: 0.3s ease;
+  --container: 1200px;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
 }
 
-/* Reset e Estilos Base */
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font: 16px/1.6 'Arial', sans-serif;
-    color: var(--text);
-    background: var(--bg);
+  font: 16px/1.6 "Arial", sans-serif;
+  color: var(--text);
+  background: var(--bg);
 }
 
-/* Layout */
+#sobre,
+#como-funciona {
+  margin: 20px;
+}
+
+li {
+    list-style: none;
+}
+
+#lista-necessidades{
+    margin: 20px;
+}
+
 .container {
-    max-width: var(--container);
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
 }
 
 main {
-    min-height: calc(100vh - 180px);
-    padding: var(--spacing-xl) 0;
+  min-height: calc(100vh - 180px);
+  padding: var(--spacing-xl) 0;
 }
 
-/* Cabeçalho */
 header {
-    background: var(--primary);
-    color: var(--white);
-    padding: var(--spacing-md) 0;
-    box-shadow: var(--shadow);
+  background: var(--primary);
+  color: var(--white);
+  padding: var(--spacing-md) 0;
+  box-shadow: var(--shadow);
 }
 
 .header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-title {
-    font-size: 1.5rem;
-    font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .header-desc {
-    max-width: var(--container);
-    margin: var(--spacing-xl) auto;
-    padding: 0 var(--spacing-md);
-    text-align: center;
-    color: var(--primary) !important;
-    font-size: 2rem;
-    font-weight: bold;
+  max-width: var(--container);
+  margin: var(--spacing-xl) auto;
+  padding: 0 var(--spacing-md);
+  text-align: center;
+  color: var(--primary) !important;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .header-nav {
-    display: flex;
-    gap: var(--spacing-xl);
+  display: flex;
+  gap: var(--spacing-xl);
 }
 
 .header-nav a {
-    color: var(--white);
-    text-decoration: none;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--radius);
-    transition: var(--transition);
+  color: var(--white);
+  text-decoration: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius);
+  transition: var(--transition);
 }
 
 .header-nav a:hover {
-    background: var(--accent);
-    color: var(--primary);
+  background: var(--accent);
+  color: var(--primary);
 }
 
-/* Rodapé */
 footer {
-    background: var(--primary);
-    color: var(--white);
-    padding: var(--spacing-md) 0;
-    margin-top: var(--spacing-xl);
-    text-align: center;
+  background: var(--primary);
+  color: var(--white);
+  padding: var(--spacing-md) 0;
+  margin-top: var(--spacing-xl);
+  text-align: center;
 }
 
-/* Botões */
 .btn-destaque,
 #form-cadastro button[type="submit"] {
-    background: var(--accent);
-    color: var(--white);
-    padding: var(--spacing-md) var(--spacing-xl);
-    border: none;
-    border-radius: var(--radius);
-    font-weight: 500;
-    cursor: pointer;
-    transition: var(--transition);
-    text-decoration: none;
-    display: inline-block;
+  background: var(--accent);
+  color: var(--white);
+  padding: var(--spacing-md) var(--spacing-xl);
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-block;
 }
 
 .btn-destaque:hover,
 #form-cadastro button[type="submit"]:hover {
-    background: var(--accent-hover);
+  background: var(--accent-hover);
 }
 
-/* Formulários */
 #form-cadastro {
-    max-width: 800px;
-    margin: var(--spacing-xl) auto;
-    padding: var(--spacing-xl);
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
+  max-width: 800px;
+  margin: var(--spacing-xl) auto;
+  padding: var(--spacing-xl);
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 #form-cadastro label {
-    display: block;
-    margin-bottom: var(--spacing-sm);
-    color: var(--primary);
-    font-weight: 500;
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary);
+  font-weight: 500;
 }
 
 #form-cadastro input,
 #form-cadastro select,
 #form-cadastro textarea {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: var(--spacing-lg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: var(--transition);
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
 }
 
 #form-cadastro input:focus,
 #form-cadastro select:focus,
 #form-cadastro textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 2px rgba(62, 214, 183, 0.2);
-    outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(62, 214, 183, 0.2);
+  outline: none;
 }
 
 #form-cadastro textarea {
-    min-height: 120px;
-    resize: vertical;
+  min-height: 120px;
+  resize: vertical;
 }
 
 #form-cadastro button[type="submit"] {
-    width: 100%;
-    margin-top: var(--spacing-md);
+  width: 100%;
+  margin-top: var(--spacing-md);
 }
 
 .endereco-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
 }
 
-/* Validação de Formulário */
 .campo-erro {
-    border-color: var(--error) !important;
+  border-color: var(--error) !important;
 }
 
 .mensagem-erro {
-    color: var(--error);
-    font-size: 0.875rem;
-    margin-top: -1rem;
-    margin-bottom: var(--spacing-md);
+  color: var(--error);
+  font-size: 0.875rem;
+  margin-top: -1rem;
+  margin-bottom: var(--spacing-md);
 }
 
-/* Cards de Necessidades */
 .lista-necessidades {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-    padding: var(--spacing-xl) 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) 0;
 }
 
 .card-necessidade {
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: var(--spacing-lg);
-    transition: transform var(--transition);
-    animation: fadeIn 0.5s ease-out;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--spacing-lg);
+  transition: transform var(--transition);
+  animation: fadeIn 0.5s ease-out;
 }
 
 .card-necessidade:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .card-necessidade h3 {
-    color: var(--primary);
-    margin-bottom: var(--spacing-md);
-    font-size: 1.25rem;
+  color: var(--primary);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.25rem;
 }
 
 .card-necessidade p {
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-light);
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-light);
 }
 
 .card-necessidade strong {
-    color: var(--text);
+  color: var(--text);
 }
 
-/* Estado de Carregamento */
 .loading {
-    position: relative;
-    opacity: 0.7;
-    pointer-events: none;
+  position: relative;
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .loading::after {
-    content: '';
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--border);
-    border-top-color: var(--accent);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
-/* Animações */
 @keyframes spin {
-    to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
-    .header-flex {
-        flex-direction: column;
-        gap: var(--spacing-md);
-        text-align: center;
-    }
+  .header-flex {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
 
-    .header-nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: var(--spacing-md);
-    }
+  .header-nav {
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
 
-    .header-desc {
-        font-size: 1.5rem;
-        margin: var(--spacing-lg) auto;
-    }
+  .header-desc {
+    font-size: 1.5rem;
+    margin: var(--spacing-lg) auto;
+  }
 
-    .lista-necessidades {
-        grid-template-columns: 1fr;
-    }
+  .lista-necessidades {
+    grid-template-columns: 1fr;
+  }
 
-    .endereco-grid {
-        grid-template-columns: 1fr;
-    }
+  .endereco-grid {
+    grid-template-columns: 1fr;
+  }
 
-    #form-cadastro {
-        margin: var(--spacing-md);
-        padding: var(--spacing-lg);
-    }
+  #form-cadastro {
+    margin: var(--spacing-md);
+    padding: var(--spacing-lg);
+  }
 }

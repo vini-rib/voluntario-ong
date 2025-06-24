@@ -127,8 +127,6 @@ function exibirNecessidades() {
         `).join('');
 }
 
-
-
 // Event Listeners
 window.addEventListener('load', () => {
     // Carregar necessidades do localStorage

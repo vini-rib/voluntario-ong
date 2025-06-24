@@ -203,6 +203,7 @@ footer {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: var(--spacing-lg);
+  margin: 2rem;
   transition: transform var(--transition);
   animation: fadeIn 0.5s ease-out;
 }
